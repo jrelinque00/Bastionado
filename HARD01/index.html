@@ -1,0 +1,117 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Guía seguridad en BIOS</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="HARD01"
+                  title="Guía seguridad en BIOS"
+                  environment="web"
+                  feedback-link="https://github.com/jrelinque00/Bastionado/issues/new?title=Error&#43;en&#43;guía&#43;seguridad&#43;BIOS">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p>BIOS es la abreviatura de Binary Input Output System, y es un software que reside en un chip instalado en la motherboard de la PC, y que realiza su tarea apenas presionamos el botón de encendido del equipo.  <br><br></p>
+<p class="image-container"><img alt="BIOS/hardware" src="img\\d4e71358363bc2bc.png">  <br><br>    </p>
+<h2 is-upgraded>¿Cómo funciona la BIOS? </h2>
+<p>El propósito de esta pieza de hardware es, una vez que prendemos la computadora, inicializar y configurar, además de testear si encuentre en buen estado de funcionamiento, todo el hardware del sistema, incluyendo la memoria RAM, discos duros y demás placas del sistema, para una vez finalizado este paso, cargar el gestor de arranque para que comience a ejecutarse el sistema operativo predeterminado de la computadora.  </p>
+<h2 is-upgraded>¿Cómo entrar en la BIOS? </h2>
+<h5 is-upgraded>Nota - Este proceso que se va a explicar esta reproducido con el portátil ThinkCentre M920t de Lenovo, cada ordenador tiene una manera diferente de entrar y una BIOS diferente. </h5>
+<p>Para entrar en la BIOS hay que realizar los siguientes pasos: </p>
+<ol type="1">
+<li>Apagar el ordenador, si ya esta apagado seguir al paso 2.</li>
+<li>Encender el ordenador.</li>
+<li>Nada más darle al botón encender del ordenador mantener pulsado la tecla Fn y pulsar repetidamente la tecla F2. </li>
+<li>Si has seguido los pasos anteriores correctamente debería parecerte la BIOS.</li>
+</ol>
+<p class="image-container"><img alt="BIOS/software" src="img\\4e2974a47af35bf5.png">    </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Añadir contraseña al arranque del sistema" duration="0">
+        <p>Para poder controlar quién puede arrancar el sistema deberemos poner una contraseña de arranque para así evitar arranque de sistemas no deseados. Una vez accedido a la BIOS del ordenador debes seguir estos pasos: </p>
+<ol type="1">
+<li>Dentro de la BIOS accedemos a la opción <em>Security</em> moviéndonos con las teclas de direcciones. <br><br><img alt="BIOS/software2" src="img\\560bf0fc16e69d29.png">  <br><br></li>
+<li>Una vez en el panel de security nos dirigimos a la opción <em>Set Power-On Password</em> con la flecha de dirección abajo. <br><br><img alt="BIOS/software3" src="img\\3ee1e354c4340b87.png">  <br><br></li>
+<li>Cuando estemos encima de <em>Set Power-On Password</em> pulsamos <em>Enter</em> y nos pedirá que pongamos una contraseña y la confirmemos,una vez puesta la contraseña damos a <em>YES</em>. <br><br><img alt="BIOS/software4" src="img\\f2111ac4c6456ac2.png">  <br><br></li>
+<li>Por último, Nos dirijimos a la ventana <em>Exit</em> y en la primera opción <em>Save Changes and Exit</em> le damos a <em>Enter</em> para salir de la BIOS y guardar los datos. <br><br><img alt="BIOS/software5" src="img\\ba5f6a7e51135cff.png">  </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Añadir contraseña para administrar BIOS" duration="0">
+        <p>Para poder controlar quién entra en la BIOS deberemos poner una contraseña para así evitar accesos no deseados. Una vez accedido a la BIOS del ordenador debes seguir estos pasos: </p>
+<ol type="1">
+<li>Dentro de la BIOS accedemos a la opción <em>Security</em> moviéndonos con las teclas de direcciones. <br><br><img alt="BIOS/software2" src="img\\560bf0fc16e69d29.png">  <br><br></li>
+<li>Una vez en el panel de security nos dirigimos a la opción <em>Set Administrator Password</em> con la flecha de dirección abajo. <br><br><img alt="BIOS/software6" src="img\\5c9777828429899f.png">  <br><br></li>
+<li>Cuando estemos encima de <em>Set Administrator Password</em> pulsamos <em>Enter</em> y nos pedirá que pongamos una contraseña y la confirmemos,una vez puesta la contraseña damos a <em>YES</em>. <br><br><img alt="BIOS/software7" src="img\\747a717258e6d9ed.png">  <br><br></li>
+<li>Por último, Nos dirijimos a la ventana <em>Exit</em> y en la primera opción <em>Save Changes and Exit</em> le damos a <em>Enter</em> para salir de la BIOS y guardar los datos. <br><br><img alt="BIOS/software5" src="img\\ba5f6a7e51135cff.png">  </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="No se pueda arrancar el ordenador desde un booteable" duration="0">
+        <p> A continuación aprenderemos a controlar que nuestro ordenador no sea iniciado desde un sistema booteable. Una vez accedido a la BIOS del ordenador debes seguir estos pasos:  </p>
+<ol type="1">
+<li>Dentro de la BIOS accedemos a la opción <em>Security</em> moviéndonos con las teclas de direcciones. <br><br><img alt="BIOS/software2" src="img\\560bf0fc16e69d29.png">  <br><br></li>
+<li>Una vez en el panel de security nos dirigimos a la opción <em>Secure Boot</em> con la flecha de dirección abajo y pulsamos <em>Enter</em> y entraremos en otra ventana. <br><br><img alt="BIOS/software8" src="img\\2ddfc1dc89e24ea0.png">  <br><br></li>
+<li>Cuando estemos dentro nos aparecerá una ventana pequeña con dos opciones <em>Disable</em> y <em>Enable</em>, seleccionamos la opción <em>Enable</em> y le damos a <em>Enter</em>. <br><br><img alt="BIOS/software9" src="img\\3e3799a31a7a58bb.png">  <br><br></li>
+<li>Por último, Nos dirijimos a la ventana <em>Exit</em> y en la primera opción <em>Save Changes and Exit</em> le damos a <em>Enter</em> para salir de la BIOS y guardar los datos. <br><br><img alt="BIOS/software5" src="img\\ba5f6a7e51135cff.png">  </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Establecer orden de arranque seguro" duration="0">
+        <p> A continuación aprenderemos a establecer un orden de arranque seguro. Una vez accedido a la BIOS del ordenador debes seguir estos pasos: </p>
+<ol type="1">
+<li>Dentro de la BIOS accedemos a la opción <em>Startup</em> moviéndonos con las teclas de direcciones. <br><br><img alt="BIOS/software10" src="img\\1862d4f5cb35fe5b.png">  <br><br></li>
+<li>Cuando estemos en la ventana de <em>Starup</em> seleccionamos <em>Primary Boot Sequence</em> y le damos a <em>Enter</em>, nos aparacerá la siguiente ventana. <br><br><img alt="BIOS/software11" src="img\\ed0eb3ba7d9e4aa9.png">  <br><br></li>
+<li>Cuando estemos dentro de la ventana lo único que habría que hacer es ir seleccionando cada una de las entradas y excluirlas, seleccionándolas y tecleando la tecla <em>X</em>, todas execpto la entrada en la que tengamos nuestro sistema operativo. <br><br></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Establecer contraseña para menu Boot F12" duration="0">
+        <p> A continuación aprenderemos a bloquear el arranque F12 Boot con la contraseña de administrador de la BIOS, para ello necesitamos tener primero configurado la contraseña de administrador (paso 3). Una vez accedido a la BIOS del ordenador debes seguir estos pasos:  </p>
+<ol type="1">
+<li>Dentro de la BIOS accedemos a la opción <em>Security</em> moviéndonos con las teclas de direcciones. <br><br><img alt="BIOS/software2" src="img\\560bf0fc16e69d29.png">  <br><br></li>
+<li>Una vez en el panel de security nos dirigimos a la opción <em>RequireAdmin. Pass. for F12 Boot</em> con la flecha de dirección abajo y pulsamos <em>Enter</em> y nos encontraremos en otra ventana. <br><br><img alt="BIOS/software12" src="img\\5a8c098d03782761.png">  <br><br></li>
+<li>Cuando estemos dentro nos aparecerá una ventana pequeña con dos opciones <em>No</em> y <em>Yes</em>, seleccionamos la opción <em>Yes</em> y le damos a <em>Enter</em>. <br><br><img alt="BIOS/software13" src="img\\28506fc0cd970fe7.png">  <br><br></li>
+<li>Por último, Nos dirijimos a la ventana <em>Exit</em> y en la primera opción <em>Save Changes and Exit</em> le damos a <em>Enter</em> para salir de la BIOS y guardar los datos. <br><br><img alt="BIOS/software5" src="img\\ba5f6a7e51135cff.png">  </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

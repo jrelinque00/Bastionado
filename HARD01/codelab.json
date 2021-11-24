@@ -1,0 +1,27 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-11-17T20:54:15+01:00",
+  "id": "HARD01",
+  "duration": 0,
+  "title": "Guía seguridad en BIOS",
+  "summary": "Seguridad de bios",
+  "source": "codelab.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "codelab",
+    "security",
+    "bios",
+    "hardening"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "https://github.com/jrelinque00/Bastionado/issues/new?title=Error+en+guía+seguridad+BIOS",
+  "url": "HARD01"
+}

@@ -1,0 +1,104 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Guía seguridad en UEFI</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="HARD02"
+                  title="Guía seguridad en UEFI"
+                  environment="web"
+                  feedback-link="https://github.com/jrelinque00/Bastionado/issues/new?title=Error&#43;en&#43;guía&#43;seguridad&#43;UEFI">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p>La Unified Extensible Firmware Interface (UEFI, lit. «interfaz unificada de firmware extensible») es una especificación que define una interfaz entre el sistema operativo y el firmware. UEFI reemplaza la antigua interfaz del Sistema Básico de Entrada y Salida (BIOS) estándar presentado en las computadoras personales IBM PC como IBM PC ROM BIOS.  <br><br></p>
+<p class="image-container"><img alt="UEFI/software" src="img\\dab0312fa144e2ca.gif">  <br><br>    </p>
+<h2 is-upgraded>¿Cómo funciona la UEFI? </h2>
+<p>UEFI -como BIOS- es el primer programa que se ejecuta en el arranque de una computadora y gestiona la configuración básica (y avanzada) de la misma. Aunque en demasiadas ocasiones es un componente que pasa inadvertido para el gran público, es una parte importantísima que conviene conocer.  </p>
+<h2 is-upgraded>¿Cómo entrar en la UEFI? </h2>
+<h5 is-upgraded>Nota - Este proceso que se va a explicar esta reproducido con el portátil Yoga Slim 9 de Lenovo, cada ordenador tiene una manera diferente de entrar y una UEFI diferente. </h5>
+<p> Para entrar en la BIOS hay que realizar los siguientes pasos: </p>
+<ol type="1">
+<li>Apagar el ordenador, si ya esta apagado seguir al paso 2.</li>
+<li>Encender el ordenador.</li>
+<li>Nada más darle al botón encender del ordenador mantener pulsado la tecla Fn y pulsar repetidamente la tecla F2. </li>
+<li>Si has seguido los pasos anteriores correctamente debería parecerte la UEFI.</li>
+</ol>
+<p class="image-container"><img alt="UEFI/software2" src="img\\100842b07a7870e9.png"><br><br>    </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Añadir contraseña al arranque del sistema y de administrador de UEFI" duration="0">
+        <p>Para poder controlar quién puede arrancar el sistema y/o puede administrar nuestra UEFI deberemos poner una contraseña para así evitar arranque de sistemas o modificaciones en UEFI no deseadas. Una vez accedido a la BIOS del ordenador debes seguir estos pasos: </p>
+<ol type="1">
+<li>Dentro de la BIOS accedemos a la opción <em>Security</em>. <br><br><img alt="UEFI/software3" src="img\\80389514d31af24.png">  <br><br></li>
+<li>Una vez en el panel de security nos dirigimos a la opción <em>Set Administrator Password</em>. <br><br><img alt="UEFI/software5" src="img\\13a267fb25f56dd5.png">  <br><br></li>
+<li>Cuando estemos encima de <em>Set Administrator Password</em> con el cursor pulsamos <em>Click</em> y nos pedirá que pongamos una contraseña y la confirmemos,una vez puesta la contraseña damos a <em>YES</em>(esta contraseña será la que nos pedirá en el arranque del sistema y la de administración de UEFI). <br><br><img alt="UEFI/software5" src="img\\d9d2969671f24505.png">  <br><br></li>
+<li>Por último, Nos dirijimos a la ventana <em>Exit</em> y en la primera opción <em>Exit Saving Changes</em> le damos a <em>Click</em> para salir de la UEFI y guardar los datos. <br><br><img alt="UEFI/software6" src="img\\4d5cc01a938ac285.png">  </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="No se pueda arrancar el ordenador desde un booteable" duration="0">
+        <p> A continuación aprenderemos a controlar que nuestro ordenador no sea iniciado desde un sistema booteable. Una vez accedido a la UEFI del ordenador debes seguir estos pasos:  </p>
+<ol type="1">
+<li>Dentro de la UEFI accedemos a la opción <em>Boot</em>. <br><br><img alt="UEFI/software7" src="img\\7fc2c6ae11646dbc.png"><br><br></li>
+<li>Una vez en el panel de <em>Boot</em> tenemos que deshabilitar todas las opciones que estan activadas: <em>USB Boot</em> y <em>PXE Boot to LAN</em>. <br><br><img alt="UEFI/software8" src="img\\3a3fd9f3b1351e78.png">  <br><br></li>
+<li>Por último, Nos dirijimos a la ventana <em>Exit</em> y en la primera opción <em>Exit Saving Changes</em> le damos a <em>Click</em> para salir de la UEFI y guardar los datos. <br><br><img alt="UEFI/software6" src="img\\4d5cc01a938ac285.png">  </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Establecer orden de arranque seguro" duration="0">
+        <p> A continuación aprenderemos a establecer un orden de arranque seguro. Una vez accedido a la UEFI del ordenador debes seguir estos pasos: </p>
+<ol type="1">
+<li>Dentro de la UEFI accedemos a la opción <em>Boot</em>. <br><br><img alt="UEFI/software7" src="img\\7fc2c6ae11646dbc.png"><br><br></li>
+<li>Cuando estemos en la ventana de <em>Boot</em> seleccionamos <em>EFI</em> y le damos <em>Click</em>, nos aparacerá la una ventana con los dispositivos disponibles y tendremos que seleccionar el que nosotros queramos primero. <br><br><img alt="UEFI/software9" src="img\\95701330c9122dba.png">  <br><br></li>
+<li>Por último, Nos dirijimos a la ventana <em>Exit</em> y en la primera opción <em>Exit Saving Changes</em> le damos a <em>Click</em> para salir de la UEFI y guardar los datos. <br><br><img alt="UEFI/software6" src="img\\4d5cc01a938ac285.png">  </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Establecer contraseña para los discos duros de nuestro sistema" duration="0">
+        <p> A continuación aprenderemos a poner una contraseña a nuestro disco duro. Una vez accedido a la UEFI del ordenador debes seguir estos pasos:  </p>
+<ol type="1">
+<li>Dentro de la BIOS accedemos a la opción <em>Security</em>. <br><br><img alt="UEFI/software3" src="img\\80389514d31af24.png">  <br><br></li>
+<li>Una vez en el panel de security nos dirigimos a la opción <em>Set Hard Disk Password</em>. <br><br><img alt="UEFI/software10" src="img\\757aab0584b33eda.png">  <br><br></li>
+<li>Cuando estemos encima de <em>Set Hard Disk Password</em> con el cursor pulsamos <em>Click</em> y nos pedirá que pongamos una contraseña y la confirmemos,una vez puesta la contraseña damos a <em>YES</em>. <br><br><img alt="UEFI/software11" src="img\\bc77c40ac4a5faa7.png">  <br><br></li>
+<li>Por último, Nos dirijimos a la ventana <em>Exit</em> y en la primera opción <em>Exit Saving Changes</em> le damos a <em>Click</em> para salir de la UEFI y guardar los datos. <br><br><img alt="UEFI/software6" src="img\\4d5cc01a938ac285.png">  </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
