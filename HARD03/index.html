@@ -1,0 +1,72 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Saltarse contraseña de cualquier SO windows / Utilman.exe</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="HARD03"
+                  title="Saltarse contraseña de cualquier SO windows / Utilman.exe"
+                  environment="web"
+                  feedback-link="https://github.com/jrelinque00/Bastionado/issues/new?title=Error&#43;en&#43;guía&#43;utilman">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p>Utilman.exe es un fichero que tiene Windows para sacar el teclado en pantalla, la lupa... Eso si, bien usado es una vulnerabilidad porque se puede ejecutar antes de entrar en Windows. El truco consiste en sustituir el fichero utilman.exe por un cmd (terminal) y desde ahí en la pantalla de bienvenida por comando crear otra cuenta o resetear una contraseña.   <br><br></p>
+<p class="image-container"><img alt="Utilman" src="img\\ce5250867930a89a.png"><br><br>    </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="¿Cómo Saltarse la contraseña?" duration="0">
+        <p>Para poder saltarnos la contraseña necesitamos tener acceso fisico a la máquina, ya que necesitamos iniciar el pc desde un usb booteado con la imagen del SO Windows. Para ello necesitamos seguir los siguientes pasos: </p>
+<ol type="1">
+<li>Iniciar el pc desde un usb booteado con el SO de Windows desde la BIOS/UEFI.</li>
+<li>Una vez hayamos iniciado el pc desde el usb nos aparecerá la siguiente pantalla, donde tendremos que entrar en la opción de abajo a la izquierda que pone <em>Reparar el equipo</em>. <br><br><img alt="Utilman" src="img\\51cda732fe77e30.png">  <br><br></li>
+<li>Una vez accedido al menu de <em>Reparar el equipo</em> nos aparecerá las siguientes opciones, y nosotros tendremos que darle a <em>Solucionar problemas</em>.  <br><br><img alt="Utilman" src="img\\3c686ab0a600f78e.png">  <br><br></li>
+<li>A continuación accedemos a <em>Símbolo del sistema</em>. <br><br><img alt="Utilman" src="img\\18850651cfbfb64f.png">  <br><br></li>
+<li>Nos aparecerá un ventana con un terminal (CMD) donde tendremos que poner unos comandos para modificar el utilman.exe. Los sigueintes comandos: <strong>d:cd Windows/System32<br><br>move utilman.exe utilman.exe.back<br><br>copy cmd.exe utilman.exe<br><br>net user administrador /active:yes<br><br>shutdown -r -t 0<br><br></strong><img alt="Utilman" src="img\\31268ac93b5e9a10.png">  <br><br> Con esto lo que estamos haciendo es los dos primero comando acceder a la carpeta donde se encuentra el utilman.exe.  Con el tercer comando estamos cambiando el nombre del utilman por si queremos volver al estado original el utilman.exe despues del ataque. El cuarto comando estamos cambiando el utilman.exe por el CMD.exe para realizar el ataque. El quinto comando es para habilitar el usuario administrador. Y el último comando para reiniciar el pc. </li>
+<li>Y ya por último tenemos acceso a una terminal simplemente accediendo a la opción de abajo a la derecha Accesibilidad.  <br><br><img alt="Utilman" src="img\\d0184e83236def6c.png">  <br><br></li>
+<li>Dentro de la terminal podemos cambiar la contraseña del administrador y poder acceder al pc.  <br><br><img alt="Utilman" src="img\\88dbaf98cfaf5584.png">  <br><br></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Solucionar la vulnerabilidad" duration="0">
+        <p> Para solucionar esta vulnerabilidad tendremos que seguir unos sencillos pasos y asi conseguir que nuestro pc sea un poco más seguro.  Para ello tenemos que seguir los siguientes pasos:  </p>
+<ol type="1">
+<li>Primero nos dirigimos a la carpeta (C:/Windows/system32) donde se encuentra la aplicación <em>utilman.exe</em>. </li>
+<li>Una vez dentro de la carpeta buscamos la aplicación y la renombramos por otro nombre que el atacante no pueda reconocer. <br><br><img alt="Utilman" src="img\\15505b0fe952827d.png">  <br><br> Para poder renombrar el archivo primero tenemos que obtener permisos para hacerlo, para ello vamos a propiedades del archivo, <em>seguridad</em>, <em>opciones avanzadas</em> y donde pone <em>Propietario : Trustedinstall</em> editamos el prpietario y ponemos <em>administrador</em>. Si todo se ha realizado bien ahora debería de dejarte modificar el archivo y por lo tanto cambiarle el nombre <br><br><img alt="Utilman" src="img\\4e8c5472d9ec4b94.png">  <br><br></li>
+<li>Por último cambiamos el nombre del archivo por otro que queramos que no se pueda identificar. <br><br><img alt="Utilman" src="img\\6adf06a6c946e858.png">  <br><br></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

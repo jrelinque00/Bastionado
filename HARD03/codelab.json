@@ -1,0 +1,27 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-11-27T21:37:15+01:00",
+  "id": "HARD03",
+  "duration": 0,
+  "title": "Saltarse contraseña de cualquier SO windows / Utilman.exe",
+  "summary": "Utilman.exe",
+  "source": "codelab.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "codelab",
+    "security",
+    "bios",
+    "hardening"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "https://github.com/jrelinque00/Bastionado/issues/new?title=Error+en+guía+utilman",
+  "url": "HARD03"
+}

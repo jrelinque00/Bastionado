@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-11-27T22:52:58+01:00",
+  "id": "HARD04",
+  "duration": 0,
+  "title": "Seguridad en contraseñas Windows",
+  "summary": "Contraseñas/Windows",
+  "source": "codelab.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "codelab",
+    "security",
+    "hardening"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "https://github.com/jrelinque00/Bastionado/issues/new?title=Error+en+guía+contraseñas+Windows",
+  "url": "HARD04"
+}

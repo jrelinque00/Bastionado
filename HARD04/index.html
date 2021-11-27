@@ -1,0 +1,53 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Seguridad en contraseñas Windows</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="HARD04"
+                  title="Seguridad en contraseñas Windows"
+                  environment="web"
+                  feedback-link="https://github.com/jrelinque00/Bastionado/issues/new?title=Error&#43;en&#43;guía&#43;contraseñas&#43;Windows">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p>Dentro de Windows tenemos varias opciones de inicio de sesión para nuestro usuarios, desde la más típica, la contraseña, hasta el pin o por reconocimiento facial. Cada una de estas opciones deben elegirse según nos convenga dependiendo de cuanta seguridad necesitamos para nuesto usuario. Para poder cambiar el tipode inicio de sesión de nuestro usuario es muy simple, nos vamos a Configuración-Cuentas-Opciones de inicio de sesión y ya aquí elegimos la cual nos parezca mejor.  <br><br></p>
+<p class="image-container"><img alt="Contraseña" src="img\\c2c1e912cdf12096.png">  <br><br>    </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Bloquear cambio de contraseña en Windows" duration="0">
+        <p>Una vez que tengamos nuesstro usuario de Windows con una contraseña debemos intentar securizarlo haciendo imposible el cambio de contraseña, es decir que no se pueda cambiar la contraseña del usuario. Para ello abrimos una terminal(CMD) y colocamos el siguiente comando:  <strong>net user usuario /PasswordChg:No<br><br></strong></p>
+<p class="image-container"><img alt="Contraseña" src="img\\1c7ec626306b56fd.png">  <br><br>  </p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
