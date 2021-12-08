@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-12-08T19:17:27+01:00",
+  "id": "HARD05",
+  "duration": 0,
+  "title": "Configuración OSPF con clave en Cisco",
+  "summary": "OSPF/Cisco",
+  "source": "codelab.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "codelab",
+    "security",
+    "hardening"
+  ],
+  "tags": [
+    "red"
+  ],
+  "feedback": "https://github.com/jrelinque00/Bastionado/issues/new?title=Error+en+guía+OSPF",
+  "url": "HARD05"
+}

@@ -7,3 +7,5 @@ Guía de seguridad en UEFI:https://jrelinque00.github.io/Bastionado/HARD02/index
 Guía Utilman:https://jrelinque00.github.io/Bastionado/HARD03/index.html
 
 Guía Cambio de contraseña Windows:https://jrelinque00.github.io/Bastionado/HARD04/index.html
+
+Guía OSPF:https://jrelinque00.github.io/Bastionado/HARD05/index.html

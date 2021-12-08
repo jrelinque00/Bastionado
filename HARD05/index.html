@@ -1,0 +1,76 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Configuración OSPF con clave en Cisco</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="HARD05"
+                  title="Configuración OSPF con clave en Cisco"
+                  environment="web"
+                  feedback-link="https://github.com/jrelinque00/Bastionado/issues/new?title=Error&#43;en&#43;guía&#43;OSPF">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p>Open Shortest Path First (OSPF) es un protocolo de direccionamiento de tipo enlace-estado, desarrollado para las redes IP y basado en el algoritmo de primera vía más corta (SPF). OSPF es un protocolo de pasarela interior (IGP).  En una red OSPF, los direccionadores o sistemas de la misma área mantienen una base de datos de enlace-estado idéntica que describe la topología del área. Cada direccionador o sistema del área genera su propia base de datos de enlace-estado a partir de los anuncios de enlace-estado (LSA) que recibe de los demás direccionadores o sistemas de la misma área y de los LSA que él mismo genera. El LSA es un paquete que contiene información sobre los vecinos y los costes de cada vía. Basándose en la base de datos de enlace-estado, cada direccionador o sistema calcula un árbol de extensión de vía más corta, siendo él mismo la raíz, utilizando el algoritmo SPF. <br><br>  Las ventajas principales de OSPF son las siguientes: </p>
+<ol type="a">
+<li>En comparación con los protocolos de direccionamiento de distancia-vector como el protocolo de información de direccionamiento (RIP), OSPF es más adecuado para servir entre redes heterogéneas de gran tamaño. OSPF puede recalcular las rutas en muy poco tiempo cuando cambia la topología de la red.</li>
+<li>Con OSPF, puede dividir un sistema autónomo (AS) en áreas y mantenerlas separadas para disminuir el tráfico de direccionamiento de OSPF y el tamaño de la base de datos de enlace-estado de cada área. </li>
+<li>OSPF proporciona un direccionamiento multivía de coste equivalente. Se pueden añadir rutas duplicadas a la pila TCP utilizando saltos siguientes distintos.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Configuración básica previa" duration="0">
+        <p> Esta configuración se realizará en la aplicación packet tracer de cisco. A la hora de configurar el protocolo OSPF para que os routers se comuniquen entre ellos tienes que tener saber donde y cómo configurarlo, eso depende de cada proyecto, para esta guía lo realizaremos con el siguiente dibujo: <br><br></p>
+<p><img alt="OSPF/cisco1" src="img\\47c7fc4028a9132c.png">  <br><br> En este dibujo encontramos tres routers diferentes conectados entre ellos por un cable serial DCE y cada uno de los routers tiene una red donde se enceuntran los dispositivos conectados (que son los que queremos que se conecten entre ellos). Hay que tener encuenta que no solo existen tes redes (donde se encuentran los dispositivos conectados), también existen dos redes más que son las que conectan los routers entre ellos. <br><br><img alt="OSPF/cisco2" src="img\\a69b81d560e8c560.png">  <br><br> Para realizar esta guía tenemos que indicar que IPs tendrán cada una de nuestras redes, en este caso usaremos las siguientes: <br><br><img alt="OSPF/cisco3" src="img\\62799506373e2a34.png">  <br><br> Una vez tengamos claro que redes tenemos y asignadas las IPs empezamos la configuración basica de cada router asignado la IP dentro del rango de la red a cada dispisitivo/puerto. Si tenemos todos esta configuración básica podemos empezar a configurar los routers para el servicio OSPF.    </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Configuración clave de OSPF" duration="0">
+        <p>Una vez configurado las opciones básicas de todas las redes y routers, podemos empezar con la configuración del OSPF. Lo único es que hay que tener claro en que puerto configurar el servicio OSPF, en nuestro caso lo configuraremos en los siguientes puertos: <br><br></p>
+<p><img alt="OSPF/cisco4" src="img\\253f8e44799f1e9b.png">  <br><br> Para configurar el servicio OSPF tenemos que acceder a la configuración de la interface del puerto que queremos y ponemos el iguiente comando: <br><br><strong>ip ospf message-digest-key 1 md5 cisco<br><br></strong> donde cisco es la clave que utilizaremos para que se reconozcan entre routers, y md5 es la codificación de la clave para que no sea visible. <br><br> Esta configuración hay que hacerla en todos los puertos que queremos que se comuniquen entre ellos.    </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Configuración redes para OSPF" duration="0">
+        <p>Una vez este la clave puesta en todos los puertos de los routers que necesitamos tenemos que especificar las redes que constituyen a cada router (las redes que estan directamente configuradas en el router). <br><br> Lo único que hay que hacer es entrar en la configuración del OSPF del router con el siguiente comando: <br><br><strong>router ospf 10<br><br></strong> Y ya dentro de la configuración ponemos todas las redes que estan configuradas en el router cpn el siguiente comando: <br><br><strong>network 192.168.1.0 0.0.0.255 area 0<br><br></strong> 192.168.1.0 es la IP de la red.<br> 0.0.0.255 es la wildcard de la red.<br> area 0 es el número del área.<br><br> Y por último colocamos el siguiente comando para que se autentifique el OSPF por la clave anteriormente configurada: <br><br><strong>area 0 authentication message-digest  </strong></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Configuración de puertos pasivos" duration="0">
+        <p> Un puerto pasivo se refiere a un puerto por el que no se enviarán los paquetes OSPF, muy útil para la seguridad de la red.<br> Para configurar un puerto como pasivo tenemos que acceder a la configuración del OSPF con el siguiente comando: <br><br><strong>router ospf 10<br><br></strong> Y una vez en la configuración del OSPF colocamos el siguiente comando: <br><br><strong>passive-interface GigabitEthernet0/0<br><br></strong> GigabitEthernet0/0 es la interfaz que queremos configurar como pasivo.   </p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
